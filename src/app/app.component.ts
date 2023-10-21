@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from './_services/account.service';
+import { User } from './_models/user';
 
 @Component({
   selector: 'app-root',
@@ -14,10 +16,16 @@ export class AppComponent implements OnInit {
   LINK_ADDRESS: string = 'https://localhost:5001/';
 
   //When ever we create a new instance of a class, the constructor is called
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient, private accountService: AccountService){}
 
   ngOnInit(): void {
-    //The get method returns an observable, so we need to subscribe to it to get the data
+
+    this.getUsers();
+    this.setCurrentUser();
+
+  }
+
+  getUsers(){
     this.http.get(this.LINK_ADDRESS + 'api/users').subscribe({
       
       next: (response) => {
@@ -31,11 +39,18 @@ export class AppComponent implements OnInit {
       }
 
     })
-
   }
 
+  setCurrentUser(){
+    // const user: User = JSON.parse(localStorage.getItem('user') || '{}');
+    // this.accountService.setCurrentUser(user);
 
-
-
+    const userString = localStorage.getItem('user');
+    if(!userString){
+      return;
+    }
+    const user: User = JSON.parse(userString);
+    this.accountService.setCurrentUser(user);
+  }
 
 }
