@@ -12,6 +12,7 @@ export class RegisterComponent implements OnInit {
   //@Input() usersFromHomeComponent: any;
   //Comunication between child to parent component
   @Output() cancelRegister = new EventEmitter();
+  error: string = '';
 
   constructor(private accountService: AccountService){}
 
@@ -27,6 +28,7 @@ export class RegisterComponent implements OnInit {
       },
       error: error => {
         console.log(error);
+        this.error = error.error;
       },
     });
   }
