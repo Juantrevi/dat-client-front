@@ -34,6 +34,7 @@ import { SharedModule } from './_modules/shared.module';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
+    //A little bit of housekeeping
     SharedModule,
   ],
   providers: [],
