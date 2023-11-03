@@ -53,12 +53,11 @@ export class RegisterComponent implements OnInit {
     const dob = this.getDateOnly(this.registerForm.controls['dateOfBirth'].value);
     const values = {...this.registerForm.value, dateOfBirth: dob};
 
-    this.accountService.register(this.registerForm.value).subscribe({
+    this.accountService.register(values).subscribe({
       next: response => {
         this.router.navigateByUrl('/members');
       },
       error: error => {
-        console.log(error);
         this.validationErrors = error;
       },
     });
@@ -74,7 +73,7 @@ export class RegisterComponent implements OnInit {
     if(!dob) return;
     let theDob = new Date(dob);
 
-    return new Date(theDob.setMinutes(theDob.getMinutes() - theDob.getTimezoneOffset())).toString().slice(0, 10);
+    return new Date(theDob.setMinutes(theDob.getMinutes() - theDob.getTimezoneOffset())).toISOString().slice(0, 10);
   }
 
 }
