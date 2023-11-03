@@ -47,7 +47,13 @@
     </app-text-input>
 
 
-
+    <div class="row" *ngIf="validationErrors">
+        <ul class="text-danger">
+            <li *ngFor="let error of validationErrors">
+                {{ error }}
+            </li>
+        </ul>
+    </div>
 
 
     <div class="text-center">
