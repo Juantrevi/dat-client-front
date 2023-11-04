@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from '../_services/account.service';
 
 @Component({
   selector: 'app-home',
@@ -10,10 +11,10 @@ export class HomeComponent implements OnInit{
   users: any;
   LINK_ADDRESS: string = 'https://localhost:5001/';
 
-
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
   registerToggle(){
