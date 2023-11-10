@@ -113,7 +113,6 @@ export class MembersService {
     return this.getPaginatedResults<Member[]>(this.baseUrl + 'likes', params);
   }
 
-
   private getPaginatedResults<T>(url: string, params: HttpParams) {
     const paginatedResult: PaginatedResult<T> = new PaginatedResult<T>();
     return this.http.get<T>(url, { observe: 'response', params }).pipe(

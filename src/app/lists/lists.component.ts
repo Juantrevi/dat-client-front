@@ -10,8 +10,6 @@ import { Pagination } from '../_models/pagination';
   styleUrls: ['./lists.component.css']
 })
 
-
-
 export class ListsComponent implements OnInit {
 
   members: Member[] | undefined;
@@ -26,6 +24,7 @@ export class ListsComponent implements OnInit {
     this.loadLikes();
   }
 
+
   loadLikes(){
     this.memberService.getLikes(this.predicate, this.pageNumber, this.pageSize).subscribe({
       next: response =>{
@@ -35,6 +34,7 @@ export class ListsComponent implements OnInit {
     })
   }
 
+  
   pageChanged(event: any){
     
     if(this.pageNumber !== event.page){
