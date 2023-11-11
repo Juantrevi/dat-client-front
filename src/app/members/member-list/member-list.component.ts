@@ -28,6 +28,7 @@ export class MemberListComponent implements OnInit {
     this.loadMembers();
   }
 
+  
   loadMembers(){
     if(this.userParams){
       this.memberService.setUserParams(this.userParams);
@@ -42,12 +43,14 @@ export class MemberListComponent implements OnInit {
     }
   }
 
+
   resetFilters(){
     
       this.userParams = this.memberService.resetUserParams();
       this.loadMembers();
     
   }
+
 
   pageChanged(event: any){
     

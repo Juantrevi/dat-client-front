@@ -33,9 +33,11 @@ export class PhotoEditorComponent implements OnInit {
     this.initializeUploader();
   }
 
+
   fileOverBase(e: any) {
     this.hasBaseDropZoneOver = e;
   }
+
 
   setMainPhoto(photo: Photo) {
 
@@ -54,6 +56,7 @@ export class PhotoEditorComponent implements OnInit {
     })
   }
 
+
   deletePhoto(photoId: number) {
     this.memberService.deletePhoto(photoId).subscribe({
       next: () => {
@@ -63,6 +66,7 @@ export class PhotoEditorComponent implements OnInit {
       }
     })
   }
+
 
   initializeUploader() {
     this.uploader = new FileUploader({
@@ -91,7 +95,6 @@ export class PhotoEditorComponent implements OnInit {
       }
     }
   }
-
 
 
 }

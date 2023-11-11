@@ -13,8 +13,10 @@ export class MemberCardComponent implements OnInit {
 
   constructor(private memberService: MembersService, private toastr: ToastrService) { }
 
+  
   ngOnInit(): void {
   }
+
 
   addLike(member: Member){
     this.memberService.addLike(member.userName).subscribe({
