@@ -42,11 +42,13 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+
   matchValues(matchTo: string): ValidatorFn{
     return (control: AbstractControl) => {
       return control.value === control.parent?.get(matchTo)?.value ? null : {notMatching: true};
     }
   }
+
 
   register(){
 
@@ -63,10 +65,12 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+  
   cancel(){
     console.log('cancelled');
     this.cancelRegister.emit(false);
   }
+
 
   private getDateOnly(dob: string | undefined){
     
