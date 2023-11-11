@@ -31,14 +31,17 @@ export class MembersService {
     })
    }
 
+
    getUserParams(){
     return this.userParams;
-   }
+  }
+
 
    setUserParams(params: UserParams){
     this.userParams = params;
    
   }
+
 
   resetUserParams(){
     if(this.user){
@@ -47,6 +50,7 @@ export class MembersService {
     }
     return;
   }
+
 
   getMembers(userParams: UserParams){
 
@@ -102,9 +106,11 @@ export class MembersService {
     return this.http.delete(this.baseUrl + 'users/delete-photo/' + photoId);
   }
 
+
   addLike(username: string){
     return this.http.post(this.baseUrl + 'likes/' + username, {});
   }
+
 
   getLikes(predicate: string, pageNumber: number, pageSize: number){
     let params = this.getPaginationHeaders(pageNumber, pageSize);
@@ -112,6 +118,7 @@ export class MembersService {
 
     return this.getPaginatedResults<Member[]>(this.baseUrl + 'likes', params);
   }
+
 
   private getPaginatedResults<T>(url: string, params: HttpParams) {
     const paginatedResult: PaginatedResult<T> = new PaginatedResult<T>();
@@ -129,6 +136,7 @@ export class MembersService {
     );
   }
 
+  
   private getPaginationHeaders(pageNumber: number, pageSize: number) {
     let params = new HttpParams();
 
