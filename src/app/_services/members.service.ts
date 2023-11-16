@@ -30,7 +30,7 @@ export class MembersService {
         }
       }
     })
-   }
+  }
 
 
    getUserParams(){
@@ -119,9 +119,6 @@ export class MembersService {
 
     return getPaginatedResults<Member[]>(this.baseUrl + 'likes', params, this.http);
   }
-
-
- 
 
 
 }
