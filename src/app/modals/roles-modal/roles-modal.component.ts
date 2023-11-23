@@ -14,8 +14,10 @@ export class RolesModalComponent implements OnInit {
 
   constructor(public bsModalRef: BsModalRef) { }
 
+  
   ngOnInit(): void {
   }
+
 
   updateChecked(checkedValue: string){
     const index = this.selectedRoles.indexOf(checkedValue);
