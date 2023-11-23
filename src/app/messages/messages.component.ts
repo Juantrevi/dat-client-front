@@ -22,6 +22,7 @@ export class MessagesComponent implements OnInit{
     this.loadMessages();
   }
 
+
   loadMessages(){
     this.messageService.getMessages(this.pageNumber, this.pageSize, this.container).subscribe({
       next: response => {
@@ -32,6 +33,7 @@ export class MessagesComponent implements OnInit{
     })
   }
 
+
   deleteMessage(id: number){
     this.messageService.deleteMessage(id).subscribe({
       next: () => {
@@ -39,6 +41,7 @@ export class MessagesComponent implements OnInit{
       }
     })
   }
+
 
   pageChanged(event: any){
 
@@ -49,4 +52,5 @@ export class MessagesComponent implements OnInit{
 
   }
 
+  
 }
