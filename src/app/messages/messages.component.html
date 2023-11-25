@@ -45,8 +45,8 @@
             <tr *ngFor="let message of messages"
                 routerLink="{{container === 'Outbox' 
                 ? '/members/' + message.recipientUsername 
-                : '/members/' + message.senderUsername}}" [queryParams]="{ tab: 'Messages' }"
-            >
+                : '/members/' + message.senderUsername}}" [queryParams]="{ tab: 'Messages' }">
+
                 <td>{{message.content}}</td>
                 <td>
                     <div *ngIf="container === 'Outbox'">
@@ -63,7 +63,9 @@
                     <button (click)="$event.stopPropagation()" (click)="deleteMessage(message.id)" class="btn btn-danger">Delete</button>
                 </td>
             </tr>
+
         </tbody>
+
     </table>
 </div>
 
@@ -82,4 +84,5 @@
                 lastText="&raquo;">
  
 </pagination>
+
 </div>
