@@ -41,6 +41,7 @@ export class MemberDetailComponent implements OnInit, OnDestroy{
   }
 
   ngOnInit() {
+
     this.route.data.subscribe({
       next: data => this.member = data['member']
       
@@ -52,19 +53,24 @@ export class MemberDetailComponent implements OnInit, OnDestroy{
       }
     })
     this.getImages();
+
   }
 
   ngOnDestroy() {
+
     this.messageService.stopHubConnection();
+
   }
 
   onTabActivated(data: TabDirective){
+
     this.activeTab = data;
     if(this.activeTab.heading === 'Messages' && this.user){
       this.messageService.createHubConnection(this.user, this.member.userName);
     }else{
       this.messageService.stopHubConnection();
     }
+    
   }
 
   selectTab(heading: string){
