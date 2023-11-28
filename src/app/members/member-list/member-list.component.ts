@@ -30,6 +30,7 @@ export class MemberListComponent implements OnInit {
 
   
   loadMembers(){
+
     if(this.userParams){
       this.memberService.setUserParams(this.userParams);
       this.memberService.getMembers(this.userParams).subscribe({
@@ -41,6 +42,7 @@ export class MemberListComponent implements OnInit {
         }
       });
     }
+    
   }
 
 
